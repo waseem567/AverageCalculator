@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description"
+         content="This is an example of a meta description. This will often show up in search results.">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <title>Average Calculator</title>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4owl.carousel.min.css"
+         integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4owl.theme.default.min.css"
+         integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   </head>
+   <body>
+      <!-- day and night button -->
+      <div class="dn_btn position-fixed end-0">
+         <div class="img">
+            <img src="https://v1.smallseotools.com/webimages/day_mode.svg" alt="day night">
+         </div>
+         <div class="dn_text">Light Mode</div>
+         <div class="slider border cp" onclick="bg_n_clr()">
+            <div class="round"></div>
+         </div>
+      </div>
+      <!-- navbar -->
+      <div class="container-fluid border-bottom  bg_light_black" id="navbar_id">
+         <nav class="navbar navbar-expand-lg px-lg-5 bg_light_black py-0">
+            <a title="our brand" class="navbar-brand cp d-block pb-2 px-lg-5" id="brand_logo" href="#"><img
+               src="Logo.png" alt="logo" height="31" width="200"></a>
+            <a title="dark mode" href="#"><img class="img_sun" onclick="bg_n_clr()"
+               src="https://v1.smallseotools.com/webimages/day_mode.svg" alt="sun"></a>
+            <a title="user" href="#"><img class="img_user" src="Group 1198.png" alt="user" height="32"
+               width="32"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_toggle_items"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- nav bar toggler button here -->
+            <div class="collapse navbar-collapse justify-content-end bg_light_black" id="navbar_toggle_items">
+               <ul class="navbar-nav fw-600 text_white">
+                  <li class="nav-Items" onclick="show_tools()"><a href="#" title="all tools"
+                     class="nav-link clr_white text-decoration-none">All Tools <img onclick="show_tools()"
+                     src="https://v1.smallseotools.com/webimages/drop_chevron.svg" alt="See all tools"></a></li>
+                  <li class="nav-Items "><a href="#" title="about us" class="nav-link clr_white">About us</a></li>
+                  <li class="nav-Items"><a href="#" title="blog" class="nav-link clr_white">Blog</a></li>
+                  <li class="nav-Items"><a href="#" title="contact us" class="nav-link clr_white">Contact us</a></li>
+               </ul>
+            </div>
+            <div class="d-flex" id="hide_div">
+               <div class="input_div d-flex py-2 px-3 mx-2 input_clr ">
+                  <input id="inp1" class="input_clr border-0" type="text" placeholder="Enter a word to search">
+                  <a class="mx-2" title="Search" href="#"><i class="fa fa-search clr_white" aria-hidden="true"></i></a>
+               </div>
+               <div class="img_user_not_btn">
+                  <img class="mx-1" src="Group 1198.png" alt="user">
+                  <div class="badge_not d-inline-block position-relative">
+                     <img class="mx-1" src="Shape 1.png" alt="notification">
+                     <span
+                        class="position-absolute top-25 start-75 translate-middle p-2 bg-danger border border-light rounded-circle h-25 w-25 text-white text-center"></span>
+                  </div>
+                  <button class="border px-2 py-1 rounded-1 mx-1 bg_dark_black clr_white lang_btn_bg"><img class="m-1"
+                     src="global.png" alt="Language">English</button>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <!-- all tools with click event  -->
+      <div class="container-fluid hide_tools ">
+         <div class="row border-bottom m-0 day_night_dark">
+            <div class="col-md-11 p-3  text_white justify-content-center">
+               <a title="link" href="#" class="d-inline-flex justify-content-start  p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+               <a title="link" href="#" class="d-inline-flex justify-content-start p-5 mt-3">
+               <span class="tools_span"><img src="https://icons8.com/icon/38532/metallic-paint" alt="icon" width="20"
+                  height="20"></span>
+               <span class="text_span fw-600 text-center m-1">Content Tools</span>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- main section goes here -->
+      <div class="container-fluid bg_light bg_dark_black pt-5">
+      <div class="container bg_light bg_dark_black">
+         <div class="row justify-content-center">
+            <!-- col- 8 section goes here -->
+            <div class="col-lg-8 border pb-5 bg_light_black bg_white">
+               <div class="text-center fw-600 fs-4 py-1 border-bottom clr_white">AVERAGE CALCULATOR</div>
+               <div class="row justify-content-center">
+                  <div class="col-lg-11 px-5 py-3 text-center fw-600 clr_white" >
+                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis itaque ratione ducimus natus est tempore ipsum id. Incidunt, illo officia! Totam unde vel autem corporis sequi illo alias, temporass.
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-lg-11 border pt-5 append_class pb-0 find_class">
+                     <div class="row justify-content-center">
+                        <div class="fw-600 fs-5 fs_20 px-5 mt-2 clr_white">Values (You May Enter upto 50 numbers)</div>
+                        <div class="col-md-5 m-2 mt-3"><input  class="border clr_white bg_dark_black w-100 py-3 px-1 val_field" type="text" placeholder="#:"></div>
+                        <div class="col-md-5 m-2 mt-3"><input class="clr_white bg_dark_black border w-100 py-3 px-1 val_field" type="text" placeholder="#:"></div>
+                     </div>
+                     <div class="row justify-content-center mt-2 txt">
+                        <div class="col-md-5 m-2"><input class="bg_dark_black clr_white border w-100 py-3 px-1 val_field" type="text" placeholder="#:"></div>
+                        <div class="col-md-5 m-2"><input class="bg_dark_black clr_white border w-100 py-3 px-1 val_field" type="text" placeholder="#:"></div>
+                     </div>
+                     <div class="row justify-content-center">
+                        <div class="col-md-12 pb-3 px-5 pt-3 text-center">
+                           <button type="button" class="btn btn-lg btn-success rounded-0 py-1 mx-3 fw-600 text-white my-3 pb-2 w-50" onclick="addRows()"><span style="font-size: 25px; font-weight: 600;" >&#43;</span>Add Course</button>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12 bg_light py-3 text-center bg_new_black">
+                           <span class="fw-600 mx-2 clr_white" style="font-size: 20px;">Types of mean</span>
+                           <select class="fw-600 clr_white py-2 fs-5 px-3 bg_light_black ">
+                              <option class="clr_white" value="0">Arithmetic Mean</option>
+                              <option class="clr_white" value="1">Geometric Mean</option>
+                              <option class="clr_white" value="2">Harmonic Mean</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+               </div >
+               <div class="row justify-content-center">
+                  <div class="col-lg-11 px-5 py-3 text-center">
+                     <div class="fw-600 clr_white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint dolores, nam iusto cupiditate illo, esse excepturi quis officia magni sed architecto quidem. Ipsam qui porro voluptate ea laboriosa!</div>
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-lg-12 text-center my-2">
+                     <button class="btn btn-lg text-white btn-danger px-4 rounded-0 py-2 fw-600 fs-6 m-1" onclick="reset()">Reset</button>
+                     <button class="btn btn-lg text-white btn-primary px-5 rounded-0 py-2 fw-600 fs-6 m-1"
+                        onclick="sum_f()">Calculate</button>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-lg-12 mt-2">
+                     <p class="text-center fw-600 fs-5 clr_white">Availble On</p>
+                     <p class="text-center">
+                        <button class="btn btn-dark py-1 fw-600 rounded-1 m-2 text-white"><img id="gPlay" src="google-play.png"
+                           alt="gPlay" height="20px" width="20px">Google Play</button>
+                        <button class="btn btn-dark py-1 fw-600 rounded-1 m-2 text-white"><img id="gPlay" src="google-play.png" alt="gPlay" height="20px" width="20px">Google Play</button>
+                        <button class="btn btn-dark py-1 fw-600 rounded-1 m-2 text-white"><img id="gPlay" src="google-play.png"
+                           alt="gPlay" height="20px" width="20px">Google Play</button>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row p-0">
+               <div class="col-md-12 p-0">
+                  <div class="text-center sty_1 py-4 fs-5 bg_dark_black clr_white">RESULTS</div>
+               </div>
+            </div>
+            <div class="row p-0 justify-content-center mb-2">
+               <div class="col-md-8 border bg_light_black bg_white">
+                  <div class="row p-4">
+                     <div class="col-sm-4 pt-4">
+                        <div class="avg border py-5 bg_new_black">
+                           <div class="text-center sty_1 fs-5 clr_white">AVERAGE VALUE</div>
+                           <div class="avg_value sty_1 text-center clr_white" id="res_val11"></div>
+                        </div>
+                        <div class="avg border py-4 mt-1">
+                           <div class="text-center sty_1 fs-5 clr_white">Arithmetic : <span class="am_val" id="res_val8"></span>
+                           </div>
+                        </div>
+                        <div class="avg border py-4 mt-1 brrdrr">
+                           <div class="text-center sty_1 fs-5 clr_white py-1">Geometric : <span class="gm_val" id="res_val9"></span>
+                           </div>
+                        </div>
+                        <div class="avg border py-5 mt-1">
+                           <div class="text-center sty_1 fs-5 clr_white">Harmonic : <span class="hm_val" id="res_val10"></span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-sm-8 p-sm-4">
+                        <div class="row">
+                           <div class="col-6 px-0">
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Sum</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Count</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Median</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Geometric</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Largest</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Smallest</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white">Range</div>
+                           </div>
+                           <div class="col-6 px-0">
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white sum_value" id="res_val1">0</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white count_value" id="res_val2">0</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white med_value" id="res_val3">0</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white gm_value" id="res_val4">0</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white large_value" id="res_val5">0</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white small_value" id="res_val6">0</div>
+                              <div class="border py-3 fw-600 px-5 bg_dark_black clr_white range_value" id="res_val7">0</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="bg_light bg_dark_black clr_white fw-600 m-0 text-center mt-3 py-2">Copy Rights Reserved (2021 - 2031)</div>
+      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+         crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+         crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+         $("#inp1").click(function(){
+            $("#inp1").css({ "border" : "none"})
+              })
+              var open = true;
+              function show_tools() {
+              open = !open;
+              if (!open) {
+              $(".hide_tools").css({ "display": "unset" })
+              }
+              else {
+              $(".hide_tools").css("display", "none")
+              }
+              }
+              var light;
+              function bg_n_clr() {
+              light = !light;
+              if (light) {
+              $(".round").css({ "margin-left": "18px", "background": "#ff4747","transition":".5s" });
+              $(".slider").css({ "background": "rgb(61, 61, 63)", "border": "none" });
+              $(".dn_btn").css({ "background": "black", "color": "white" })
+              $(".img img").attr("src", "https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png")
+              $(".bg_light_black").css({"background": "#3d3d3f" })
+              $(".bg_dark_black").css({"background": "#2a2a2e" })
+              $(".clr_white").css({ "color": "white" })
+              $(".box_shad").css({ "boxShadow": "none" })
+              $(".bg_new_black").css({ "background": "#100c08" })
+              $(".bg_light_input").css({ "background": "#888b8e" })
+              $(".border_none").css({ "borderColor": "black" })
+              $(".lang_btn_bg , new_ap:placeholder").css({ "background": "#3d3d3f", "color": "white", "border": "none" })
+              $("option").css({ "background": "#888b8e" })
+              $(".brrdrr").css("border" , "none")
+            }
+              else {
+              $(".round").css({ "margin-left": "2px", "background": "white" })
+              $(".dn_btn").css({ "background": "white", "color": "black" })
+              $(".img img").attr("src", "https://v1.smallseotools.com/webimages/day_mode.svg")
+              $(".slider").css({ "background": "rgb(182 187 193)" });
+              $(".bg_light_black").css({ "background": "white" })
+              $(".bg_dark_black").css({ "background": "#F6F8FA" })
+              $(".clr_white").css({ "color": "black" })
+              $(".img_sun").attr("src", "https://v1.smallseotools.com/webimages/day_mode.svg")
+              $(".bg_new_black").css({"background": "white" })
+              $(".bg_light_input").css({ "background": "white" })
+              $(".border_none").css({ "border": "unset" })
+              $(".lang_btn_bg").css({ "background": "#f0f3f6", "color": "black", "fontWeight": "600" })
+              }
+              }
+              var row = 3, hider = 0 , arr = [];
+              let counter = 4;
+              function addRows(){
+              row++;
+              if(row<50){
+                hider++;
+                counter++;
+              $(".txt").append('<div class="col-md-5 m-2 position-relative new_ap"><input class="val_field bg_dark_black clr_white border w-100 py-3 px-1" type="text" placeholder="#:"><img class="position-absolute abs_pic" onclick="hideRow()" src="https://smallseotools.com/asets/images/ave_cross.svg" alt="del"></div>');
+              }
+              else{
+              alert("You may not enter more than 50 values")
+              }
+              }
+            function hideRow(){
+              $(".new_ap").eq(hider-1).hide();
+              hider--;
+              counter--;
+            }
+            var sumVal = smallest = largest = bb = 0;
+            var x = harmonic = 0;
+            var arr = [0];
+            function sum_f(){
+           let abc = 0;
+              while(abc<counter){
+               bb = $('.val_field').eq(abc).val();
+              if(bb === ""){
+                counter--;
+              }
+              else{
+                sumVal = parseInt(sumVal) + parseInt(bb);      
+              arr.push(bb)
+               }   
+              abc++;
+             }
+             console.log(counter)
+         $(".sum_value").text(sumVal);
+         // sorting
+         arr.shift()
+         let sortArr = arr.sort();
+         // large and small
+         smallest = sortArr[0];
+         largest = sortArr[counter - 1];
+         // average of values
+         var avg = 0;
+         avg = parseInt(sumVal) / parseInt(counter);
+         
+         $(".avg_value").text (avg.toFixed(2))
+         $(".am_val").text(avg.toFixed(2))
+         //  it is mean as well
+         $(".small_value").text(smallest)
+         $(".large_value").text(largest)
+         // counnter
+         $(".count_value").text(counter)
+         // range
+         var range = parseInt(largest) - parseInt(smallest);
+         Math.abs(range)
+         $(".range_value").text(range.toFixed(2))
+         var med = counter / 2;
+         
+         // median for even numbers
+         if(counter === 2){
+          $(".med_value").text(avg)
+         }
+         else if(med % 2 === 0){
+          var cal = parseInt(counter / 2)
+          var cal1 = parseInt(counter / 2)
+          cal--;
+          cal = arr[cal]
+         cal1 = arr[cal1]
+          cal = parseInt(cal) + parseInt(cal1);
+          cal = cal/ 2;
+          // median value
+          $(".med_value").text(cal)
+          // harmonic mean
+         }
+         else{
+         var cal = parseInt(counter / 2)
+         cal++;
+         cal = sortArr[cal];
+         $(".med_value").text(cal)
+         
+         }
+         // harmonic mean
+          while(x<counter){
+            var y = sortArr[x] / 1;
+            harmonic += y;
+            x++;
+          }
+         harmonic = counter / harmonic;
+         $(".hm_val").text(" " + harmonic.toFixed(2))
+         // geometric mean
+         var xyz = 0;
+         var muliplyer = 1;
+         while(xyz<sortArr.length){
+         muliplyer = muliplyer * sortArr[xyz];
+         xyz++;
+         }
+         var z = 1 / counter;
+         var gm = Math.pow(muliplyer, z)
+         gm = gm.toFixed(2)
+         // gm = gm.toString();
+         $("#res_val4").text(gm)
+         $(".gm_val").text(gm)
+         }
+         function reset(){
+              var aText = 0
+         document.getElementById("res_val1").innerText = aText;
+         document.getElementById("res_val2").innerText = aText;
+         document.getElementById("res_val3").innerText = aText;
+         document.getElementById("res_val4").innerText = aText;
+         document.getElementById("res_val5").innerText = aText;
+         document.getElementById("res_val6").innerText = aText;
+         document.getElementById("res_val7").innerText = aText;
+         document.getElementById("res_val8").innerText = aText;
+         document.getElementById("res_val9").innerText = aText;
+         document.getElementById("res_val10").innerText = aText;
+         document.getElementById("res_val11").innerText = aText;
+            }
+         
+      </script>
+   </body>
+</html>
